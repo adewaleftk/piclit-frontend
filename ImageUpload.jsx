@@ -13,8 +13,16 @@ function ImageUpload() {
     const formData = new FormData();
     formData.append('image', selectedFile);
 
+    const headers = {
+      'Content-Type': 'multipart/form-data',
+    };
+
     try {
-      const response = await fetch('https://piclit-backend.onrender.com/api/compress', { method: 'POST', body: formData });
+      const response = await fetch('https://piclit-backend.onrender.com/api/compress', {
+        method: 'POST',
+        body: formData,
+        headers,
+      });
       const data = await response.json();
 
       if (response.ok) console.log(data.message);
