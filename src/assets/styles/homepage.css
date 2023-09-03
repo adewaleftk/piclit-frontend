@@ -1,0 +1,107 @@
+.homepage {
+    background: transparent;
+    height: 100vh;
+    color: #ffffff;    
+}
+
+.homepage-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.homepage-body p {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.homepage-body button {
+    border: 2px solid #292F36;
+    height: 60px;
+    width: 120px;
+    border-radius: 8px;
+    background: red;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .homepage {
+        background: green;
+        height: 100vh;
+        
+    }
+    
+    .homepage-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+    
+    .homepage-body p {
+        font-size: 25px;
+        font-weight: 600;
+    }
+    
+    .homepage-body button {
+        border: 2px solid #292F36;
+        height: 60px;
+        width: 120px;
+        border-radius: 8px;
+        background: red;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 800;
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html, .homepage-body { height: 100%; }
+
+.homepage-body {
+    background: radial-gradient(circle, lemonchiffon, rgb(223, 68, 68) 25%, skyblue);
+
+}
+
+.homepage-body:after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    background: radial-gradient(circle, transparent, rgb(95, 83, 83) 25%, transparent);
+    animation: color 3.5s infinite ease-out alternate;
+    opacity: 0;
+}
+
+@keyframes color {
+    0% {  background: radial-gradient(circle, transparent, rgb(128, 55, 55) 25%, transparent); }
+    100% { opacity: 1; }
+}

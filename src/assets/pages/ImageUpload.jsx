@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/imageupload.css'
 
 function ImageUpload() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -6,7 +7,7 @@ function ImageUpload() {
 
   function handleFileChange(event) {
     setSelectedFile(event.target.files[0]);
-    setCompressedImage(null); // Clear the compressed image when a new file is selected
+    setCompressedImage(null);
   }
 
   async function handleUpload() {
@@ -16,7 +17,7 @@ function ImageUpload() {
     formData.append('image', selectedFile);
 
     try {
-      const response = await fetch('https://piclit-backend.onrender.com/api/compress', {
+      const response = await fetch('https://piclit-backend.onrender.com/api/v1/compress', {
         method: 'POST',
         body: formData,
       });
@@ -56,15 +57,18 @@ function ImageUpload() {
   }
 
   return (
-    <div>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Compress Image</button>
-      {compressedImage && (
-        <div>
-          <img src={compressedImage} alt="Compressed" />
-          <button onClick={handleDownload}>Download Compressed Image</button>
-        </div>
-      )}
+    <div className='image-upload'>
+      <div className='image-upload--box'>
+        <h2>Upload Image</h2>
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <button onClick={handleUpload}>Compress Image</button>
+        {compressedImage && (
+          <div className='compressed-image'>
+            <img src={compressedImage} alt="Compressed" />
+            <button onClick={handleDownload}>Download Compressed Image</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
