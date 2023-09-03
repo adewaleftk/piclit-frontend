@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/resetpassword.css'
 
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState('');
@@ -11,9 +12,9 @@ function ResetPassword() {
   };
 
   return (
-    <div>
-      <h1>Reset Your Password</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='reset-password'>
+        <div className='reset-password--box'>
+        <h2>Reset Your Password</h2>
         <label htmlFor="new-password">New Password:</label>
         <input
           type="password"
@@ -39,8 +40,7 @@ function ResetPassword() {
         {/* Display validation errors here if needed */}
 
         <button type="submit">Reset Password</button>
-      </form>
-
+        </div>
       {/* Display success message here if the password reset was successful */}
     </div>
   );

@@ -87,7 +87,7 @@ function Login() {
             />
             </div>
             <button onClick={handleLoginSubmit}>Login</button>
-            <span>Forgot Password? <NavLink to="/reset">Reset Password</NavLink></span>
+            <span>Forgot Password? <NavLink to="/forgot">Reset Password</NavLink></span>
         </div>
     </div>
   )

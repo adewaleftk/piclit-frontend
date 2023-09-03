@@ -85,7 +85,7 @@
 
 
 
-html, .homepage-body { height: 100%; }
+ /* .homepage-body { height: 90vh; } */
 
 .homepage-body {
     background: radial-gradient(circle, lemonchiffon, rgb(223, 68, 68) 25%, skyblue);
@@ -93,7 +93,7 @@ html, .homepage-body { height: 100%; }
 }
 
 .homepage-body:after {
-    content: '';
+    content: bo;
     position: absolute;
     top: 0; right: 0; left: 0; bottom: 0;
     background: radial-gradient(circle, transparent, rgb(95, 83, 83) 25%, transparent);

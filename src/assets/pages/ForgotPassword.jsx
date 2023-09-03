@@ -8,7 +8,8 @@ function ForgotPassword() {
       setEmail(e.target.value);
     };
   return (
-    <div>
+    <div className='forgot-password'>
+      <div className='forgot-password--box'>
         <h2>Forgot Password</h2>
         <div className='form-group'>
                 <p><label htmlFor="email">Email Address</label></p>
@@ -22,6 +23,7 @@ function ForgotPassword() {
                 />
           </div>
           <button>Send OTP</button>
+        </div>
     </div>
   )
 }
