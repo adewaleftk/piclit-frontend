@@ -81,6 +81,7 @@ function Login() {
                 type="password"
                 id="password"
                 value={password}
+                placeholder="Enter Your Password"
                 onChange={handlePasswordChange}
                 required
             />
