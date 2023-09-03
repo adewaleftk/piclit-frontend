@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 function Register() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
+
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -17,6 +19,11 @@ function Register() {
         event.preventDefault();
         // setIsLoading(true);
         // setSignupError(null); 
+        if (password !== passwordConfirm) {
+            // Passwords do not match, show an error message or take appropriate action.
+            console.error('Passwords do not match');
+            return;
+          }
 
         const baseUrl = 'https://piclit-backend.onrender.com';
         const apiUrl = `${baseUrl}/api/v1/auth/register`;
@@ -83,13 +90,13 @@ function Register() {
                 /> 
             </div>
             <div>
-                <p><label htmlFor="password">Verify Password</label></p>
+                <p><label htmlFor="password">Confirm Password</label></p>
                 <input
                 type="password"
-                placeholder="Password"
+                placeholder="Confirm Password"
                 id="passwordConfirm"
-                value={password}
-                onChange={handlePasswordChange}
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
                 required
                 /> 
             </div>
