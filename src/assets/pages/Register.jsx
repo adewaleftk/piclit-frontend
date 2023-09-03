@@ -1,12 +1,13 @@
 import '../styles/register.css'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
-
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -48,7 +49,7 @@ function Register() {
                 console.log('Signup successful:', responseData.message);
                 console.log(responseData);
                 // setRegistrationSuccess(true);
-                // navigate('/login');
+                navigate('/login');
             } else {
                 // Signup failed, handle the error scenario
                 console.error('Signup failed:', responseData.errorMessage);
