@@ -44,7 +44,7 @@ function Register() {
             const response = await fetch(apiUrl, requestData);
             const responseData = await response.json();
 
-            if (response.ok && responseData.status === true) {
+            if (response.ok == 200 ) {
                 // Signup successful
                 console.log('Signup successful:', responseData.message);
                 console.log(responseData);
