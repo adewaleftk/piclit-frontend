@@ -1,10 +1,12 @@
 import '../styles/login.css'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -36,7 +38,7 @@ function Login() {
             const response = await fetch(apiUrl, requestData);
             const responseData = await response.json();
   
-            if (response.ok && responseData.status === true) {
+            if (response.ok) {
                 // Login successful
                 console.log('Login successful:', responseData.message); 
                 console.log(responseData);
@@ -47,7 +49,7 @@ function Login() {
                 // localStorage.setItem('user', JSON.stringify(responseData.data));
                 // setLoginSuccess(true);
                 setTimeout(() => {
-                // navigate('/compress');
+                navigate('/compress');
                 }, 5000); 
             } else {
                 console.error('Login failed:', responseData.message);
