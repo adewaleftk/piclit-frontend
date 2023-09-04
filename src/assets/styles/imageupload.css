@@ -45,6 +45,7 @@
 .compressed-image {
     display: flex;
     flex-direction: column;
+    height: 50%;
     border: 1px solid red;
 }
 
