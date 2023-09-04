@@ -43,10 +43,15 @@
 }
 
 .compressed-image {
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
 }
 
 .compressed-image img {
+    width: 100%;
+}
+
+.compressed-image button {
     width: 100%;
 }
 
