@@ -42,17 +42,16 @@ function Login() {
                 // Login successful
                 console.log('Login successful:', responseData); 
                 console.log(responseData);
-                console.log('User Token:', responseData.data);
-                // const userToken = responseData.data.token;
-                // login(userToken);
-                // usePackageStore.setState({ user: responseData.data });
+                console.log('User Token:', responseData);
+                const userToken = responseData;
+                localStorage.setItem('userToken', userToken);
                 // localStorage.setItem('user', JSON.stringify(responseData.data));
                 // setLoginSuccess(true);
                 setTimeout(() => {
                 navigate('/compress');
                 }, 5000); 
             } else {
-                console.error('Login failed:', responseData.message);
+                console.error('Login failed:', responseData);
                 console.log(responseData);
                 // setLoginError(responseData.errorMessage); 
             }
