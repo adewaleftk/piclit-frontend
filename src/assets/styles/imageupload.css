@@ -46,6 +46,10 @@
     border: 1px solid red;
 }
 
+.compressed-image img {
+    width: 100%;
+}
+
 
 
 
