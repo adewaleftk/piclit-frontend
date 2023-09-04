@@ -59,11 +59,9 @@ function ImageUpload() {
   return (
     <div className='image-upload'>
       <div className='image-upload--box'>
-        <div className='upload-menu'>
-          <h2>Upload Image</h2>
-          <input type="file" accept="image/*" onChange={handleFileChange} />
-          <button onClick={handleUpload}>Compress Image</button>
-        </div>
+        <h2>Upload Image</h2>
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <button onClick={handleUpload}>Compress Image</button>
         {compressedImage && (
           <div className='compressed-image'>
             <img src={compressedImage} alt="Compressed" />
