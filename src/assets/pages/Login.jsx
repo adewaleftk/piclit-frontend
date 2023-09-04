@@ -40,9 +40,9 @@ function Login() {
   
             if (response.ok) {
                 // Login successful
-                console.log('Login successful:', responseData.message); 
+                console.log('Login successful:', responseData); 
                 console.log(responseData);
-                console.log('User Token:', responseData.data.token);
+                console.log('User Token:', responseData.data);
                 // const userToken = responseData.data.token;
                 // login(userToken);
                 // usePackageStore.setState({ user: responseData.data });
