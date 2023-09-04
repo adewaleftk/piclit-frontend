@@ -41,9 +41,8 @@ function Login() {
             if (response.ok) {
                 // Login successful
                 console.log('Login successful:', responseData); 
-                console.log(responseData);
-                console.log('User Token:', responseData);
-                const userToken = responseData;
+                console.log('User Token:', responseData.token);
+                const userToken = responseData.token;
                 localStorage.setItem('userToken', userToken);
                 // localStorage.setItem('user', JSON.stringify(responseData.data));
                 // setLoginSuccess(true);
