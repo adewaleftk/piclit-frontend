@@ -7,6 +7,9 @@ function Login() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
+    const [loginSuccess, setLoginSuccess] = useState('');
+    const [loginError, setLoginError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -17,8 +20,8 @@ function Login() {
       };
     async function handleLoginSubmit(event) {
         event.preventDefault();
-        // setIsLoading(true);
-        // setLoginError(null);
+        setIsLoading(true);
+        setLoginError(null); // Clear previous errors
   
         const baseUrl = 'https://piclit-backend.onrender.com';
         const apiUrl = `${baseUrl}/api/v1/auth/login`;
@@ -45,19 +48,18 @@ function Login() {
                 const userToken = responseData.token;
                 localStorage.setItem('userToken', userToken);
                 // localStorage.setItem('user', JSON.stringify(responseData.data));
-                // setLoginSuccess(true);
+                setLoginSuccess('Login Successful. You are now being redirected');
                 setTimeout(() => {
                 navigate('/compress');
                 }, 5000); 
             } else {
                 console.error('Login failed:', responseData);
-                console.log(responseData);
-                // setLoginError(responseData.errorMessage); 
+                setLoginError(responseData.error); 
             }
           } catch (error) {
             console.error('An error occurred:', error);
           } finally {
-        //   setIsLoading(false);
+          setIsLoading(false);
         }
     }
   return (
@@ -86,8 +88,17 @@ function Login() {
                 required
             />
             </div>
-            <button onClick={handleLoginSubmit}>Login</button>
+            {loginError && <p className="error-message">{loginError}</p>}
+            <button
+                type="submit"
+                onClick={handleLoginSubmit}
+                className={`loading-button ${isLoading ? "loading" : ""}`}
+                disabled={isLoading}
+              >
+                {isLoading ? "Loading" : "Login"}
+            </button>
             <span>Forgot Password? <NavLink to="/forgot">Reset Password</NavLink></span>
+            {loginSuccess && <p>{loginSuccess}</p>}
         </div>
     </div>
   )

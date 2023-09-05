@@ -61,6 +61,39 @@
     text-decoration: none;
 }
 
+@keyframes loading {
+  0% {
+    content: "";
+  }
+  33% {
+    content: ".";
+  }
+  66% {
+    content: "..";
+  }
+  100% {
+    content: "...";
+  }
+}
+
+.loading-button {
+  position: relative;
+}
+
+.loading-button.loading::after {
+  content: " ";
+  display: inline-block;
+  width: 1ch;
+  animation: loading 1s infinite;
+}
+
+
+.error-message {
+  color: red !important;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
 
 @media only screen and (max-width: 768px) {
     .login {

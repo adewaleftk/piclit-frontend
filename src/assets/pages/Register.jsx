@@ -8,6 +8,9 @@ function Register() {
     const [email, setEmail] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const navigate = useNavigate();
+    const [signupError, setSignupError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [registrationSuccess, setRegistrationSuccess] = useState('');
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -18,8 +21,8 @@ function Register() {
     };
     async function handleSignUpSubmit(event) {
         event.preventDefault();
-        // setIsLoading(true);
-        // setSignupError(null); 
+        setIsLoading(true);
+        setSignupError(null); 
         if (password !== passwordConfirm) {
             // Passwords do not match, show an error message or take appropriate action.
             console.error('Passwords do not match');
@@ -48,20 +51,23 @@ function Register() {
                 // Signup successful
                 console.log('Signup successful:', responseData.message);
                 console.log(responseData);
-                // setRegistrationSuccess(true);
-                navigate('/login');
+                setRegistrationSuccess(responseData.message);
+                setTimeout(() => {
+                    navigate('/login');
+                    }, 5000);
             } else {
                 // Signup failed, handle the error scenario
-                console.error('Signup failed:', responseData.errorMessage);
+                console.error('Signup failed:', responseData.error);
                 console.log(responseData);
-                // setSignupError(responseData.errorMessage);
+                console.log(responseData.error);
+                setSignupError(responseData.error);
                 // Display an error message to the user
             }
         } catch (error) {
             console.error('An error occurred:', error);
             // Handle any unexpected errors
         }finally {
-            // setIsLoading(false);
+            setIsLoading(false);
           }
     }
   return (
@@ -101,7 +107,16 @@ function Register() {
                 required
                 /> 
             </div>
-            <button onClick={handleSignUpSubmit}>Register</button>
+            {registrationSuccess && <p>{registrationSuccess}</p>}
+            {signupError && <p className="error-message">{signupError}</p>}
+            <button
+                type="submit"
+                onClick={handleSignUpSubmit}
+                className={`loading-button ${isLoading ? "loading" : ""}`}
+                disabled={isLoading}
+              >
+                {isLoading ? "Loading" : "Register"}
+            </button>
             <span>Have an account already? <NavLink to="/login">Sign In</NavLink></span>
         </div>
     </div>
