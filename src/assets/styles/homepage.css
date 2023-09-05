@@ -13,14 +13,14 @@
 }
 
 .homepage-body p {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
 }
 
 .homepage-body button {
     border: 2px solid #292F36;
     height: 60px;
-    width: 250px;
+    width: 200px;
     border-radius: 8px;
     background: red;
     color: #ffffff;
@@ -28,6 +28,28 @@
     font-weight: 800;
     margin-top: 20px;
 }
+
+.rainbow-text {
+    background-image: linear-gradient(to right, 
+      violet, indigo, blue, green, yellow, orange, red
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    display: flex;
+    font-size: 50px !important;
+    animation: rainbow 5s linear infinite;
+    margin-bottom: 30px;
+  }
+  
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
 
 @media only screen and (max-width: 768px) {
     .homepage {
@@ -45,14 +67,17 @@
     }
     
     .homepage-body p {
-        font-size: 25px;
+        font-size: 15px;
         font-weight: 600;
+        line-height: 30px;
     }
+
+    
     
     .homepage-body button {
         border: 2px solid #292F36;
         height: 60px;
-        width: 120px;
+        width: 200px;
         border-radius: 8px;
         background: red;
         color: #ffffff;
@@ -60,6 +85,28 @@
         font-weight: 800;
         margin-top: 20px;
     }
+
+    .rainbow-text {
+        background-image: linear-gradient(to right, 
+          violet, indigo, blue, green, yellow, orange, red
+        );
+        -webkit-background-clip: text;
+        color: transparent;
+        display: flex;
+        font-size: 15px !important;
+        animation: rainbow 5s linear infinite;
+        margin-bottom: 30px;
+      }
+      
+      @keyframes rainbow {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+      
 }
 
 
