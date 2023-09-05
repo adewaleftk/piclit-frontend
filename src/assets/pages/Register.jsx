@@ -11,6 +11,7 @@ function Register() {
     const [signupError, setSignupError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [registrationSuccess, setRegistrationSuccess] = useState('');
+    const [passwordMismatch, setPasswordMismatch] = useState('')
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -18,14 +19,15 @@ function Register() {
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
+        setPasswordMismatch(''); // Clear the error message
     };
     async function handleSignUpSubmit(event) {
         event.preventDefault();
         setIsLoading(true);
         setSignupError(null); 
         if (password !== passwordConfirm) {
-            // Passwords do not match, show an error message or take appropriate action.
-            console.error('Passwords do not match');
+            setPasswordMismatch('Passwords do Not Match');
+            setIsLoading(false);
             return;
           }
 
@@ -49,17 +51,12 @@ function Register() {
 
             if (response.ok) {
                 // Signup successful
-                console.log('Signup successful:', responseData.message);
-                console.log(responseData);
                 setRegistrationSuccess(responseData.message);
                 setTimeout(() => {
                     navigate('/login');
                     }, 5000);
             } else {
                 // Signup failed, handle the error scenario
-                console.error('Signup failed:', responseData.error);
-                console.log(responseData);
-                console.log(responseData.error);
                 setSignupError(responseData.error);
                 // Display an error message to the user
             }
@@ -109,6 +106,7 @@ function Register() {
             </div>
             {registrationSuccess && <p>{registrationSuccess}</p>}
             {signupError && <p className="error-message">{signupError}</p>}
+            {passwordMismatch && <p className="error-message">{passwordMismatch}</p>}
             <button
                 type="submit"
                 onClick={handleSignUpSubmit}
