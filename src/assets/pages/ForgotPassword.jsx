@@ -7,6 +7,33 @@ function ForgotPassword() {
   const handleEmailChange = (e) => {
       setEmail(e.target.value);
     };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        const response = await fetch('https://piclit-backend.onrender.com/api/v1/reset/reset-password', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+  
+        if (response.ok) {
+          console.log('Password reset email sent. Check your inbox.');
+          // setErrorMessage('');
+        } else {
+          const data = await response.json();
+          // setSuccessMessage('');
+          console.log(data);
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+        // setSuccessMessage('');
+        // setErrorMessage('Password reset failed. Please try again later.');
+      }
+    };
   return (
     <div className='forgot-password'>
       <div className='forgot-password--box'>
@@ -22,7 +49,7 @@ function ForgotPassword() {
                     required
                 />
           </div>
-          <button>Send OTP</button>
+          <button onClick={handleSubmit}>Reset Password</button>
         </div>
     </div>
   )
