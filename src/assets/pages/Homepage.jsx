@@ -13,10 +13,10 @@ function Homepage() {
     <div className='homepage'>
         <Navbar />
         <div className='homepage-body'>
-            <p>Introducing the coolest and fastest way of compressing your images</p>
-            <p>without reducing the image&apos;s quality</p>
-            <p>Guess What??? It&apos;s absolutely free</p>
-            <button onClick={handleTryItNow}>Try it Now!</button>
+            <p>Don&apos;t let your images take too much space</p>
+            <p>Try PicLit today and see how much you can save</p>
+            <p>Without losing your image&apos;s quality!</p>
+            <button onClick={handleTryItNow}>Try PicLit for Free!</button>
         </div>
     </div>
   )
