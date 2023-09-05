@@ -27,6 +27,7 @@ function ResetPassword() {
       } else {
         // Handle password reset failure (e.g., show an error message)
         console.error('Password reset failed.');
+        console.log(response);
       }
     } catch (error) {
       console.error('An error occurred while resetting the password:', error);
