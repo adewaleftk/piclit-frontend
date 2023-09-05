@@ -67,10 +67,14 @@ function ImageUpload() {
         <h2>Upload Image</h2>
         <input type="file" accept="image/*" onChange={handleFileChange} />
         <button onClick={handleUpload}>Compress Image</button>
-        
-        {/* Conditional rendering for loading message */}
-        {loading && <p>Please wait while your image is being compressed...</p>}
-        
+
+        {loading && (
+          <div className="overlay">
+            <div className="spinner"></div>
+            <p className="overlay-text">Please wait while your picture is being compressed...</p>
+          </div>
+        )}
+
         {compressedImage && (
           <div className='compressed-image'>
             <img src={compressedImage} alt="Compressed" />
