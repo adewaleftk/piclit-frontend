@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import '../styles/imageupload.css'
+import '../styles/imageupload.css';
 
 function ImageUpload() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [compressedImage, setCompressedImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   function handleFileChange(event) {
     setSelectedFile(event.target.files[0]);
@@ -12,6 +13,8 @@ function ImageUpload() {
 
   async function handleUpload() {
     if (!selectedFile) return;
+
+    setLoading(true); // Set loading to true while compression is in progress
 
     const formData = new FormData();
     formData.append('image', selectedFile);
@@ -38,6 +41,8 @@ function ImageUpload() {
       }
     } catch (error) {
       console.error('Network error:', error);
+    } finally {
+      setLoading(false); // Set loading back to false when compression is done
     }
   }
 
@@ -62,6 +67,10 @@ function ImageUpload() {
         <h2>Upload Image</h2>
         <input type="file" accept="image/*" onChange={handleFileChange} />
         <button onClick={handleUpload}>Compress Image</button>
+        
+        {/* Conditional rendering for loading message */}
+        {loading && <p>Please wait while your image is being compressed...</p>}
+        
         {compressedImage && (
           <div className='compressed-image'>
             <img src={compressedImage} alt="Compressed" />
