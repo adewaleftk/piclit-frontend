@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
+  const [emailSent, setEmailSent] = useState('');
+  const [emailSendError, setEmailSendError] = useState('');
 
   const handleEmailChange = (e) => {
       setEmail(e.target.value);
@@ -21,17 +23,16 @@ function ForgotPassword() {
         });
   
         if (response.ok) {
-          console.log('Password reset email sent. Check your inbox.');
-          // setErrorMessage('');
+          setEmailSent('Password reset email sent. Please check your email.');
+          setEmailSendError('');
         } else {
           const data = await response.json();
-          // setSuccessMessage('');
-          console.log(data);
+          setEmailSendError(data.error);
+          setEmailSent('');
         }
       } catch (error) {
-        console.error('An error occurred:', error);
-        // setSuccessMessage('');
-        // setErrorMessage('Password reset failed. Please try again later.');
+        setEmailSendError('Password reset failed. Please try again later.');
+        setEmailSent('');
       }
     };
   return (
@@ -50,6 +51,8 @@ function ForgotPassword() {
                 />
           </div>
           <button onClick={handleSubmit}>Reset Password</button>
+          {emailSent && <p>{emailSent}</p>}
+          {emailSendError && <p>{emailSendError}</p>}
         </div>
     </div>
   )

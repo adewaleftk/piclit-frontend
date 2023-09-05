@@ -71,7 +71,7 @@ function ImageUpload() {
         {loading && (
           <div className="overlay">
             <div className="spinner"></div>
-            <p className="overlay-text">Please wait while your picture is being compressed...</p>
+            <p className="overlay-text">Please wait while your picture is being optimized...</p>
           </div>
         )}
 

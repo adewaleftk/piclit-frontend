@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [resetFail, setResetFail] = useState('');
 
   const { token } = useParams();
   const navigate = useNavigate();
@@ -26,11 +27,10 @@ function ResetPassword() {
         navigate('/login'); // Redirect the user to the login page or another appropriate page
       } else {
         // Handle password reset failure (e.g., show an error message)
-        console.error('Password reset failed.');
-        console.log('Token:', token);
+        setResetFail('Password Reset Failed');
       }
     } catch (error) {
-      console.error('An error occurred while resetting the password:', error);
+      setResetFail('Password Reset Failed');
     }
   };
 
@@ -64,7 +64,7 @@ function ResetPassword() {
 
         <button onClick={handleResetPassword}>Reset Password</button>
         </div>
-      {/* Display success message here if the password reset was successful */}
+        {resetFail && <p>{resetFail}</p>}
     </div>
   );
 }

@@ -43,8 +43,6 @@ function Login() {
   
             if (response.ok) {
                 // Login successful
-                console.log('Login successful:', responseData); 
-                console.log('User Token:', responseData.token);
                 const userToken = responseData.token;
                 localStorage.setItem('userToken', userToken);
                 // localStorage.setItem('user', JSON.stringify(responseData.data));
@@ -53,7 +51,6 @@ function Login() {
                 navigate('/compress');
                 }, 5000); 
             } else {
-                console.error('Login failed:', responseData);
                 setLoginError(responseData.error); 
             }
           } catch (error) {
