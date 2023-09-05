@@ -13,14 +13,14 @@
 }
 
 .homepage-body p {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 600;
 }
 
 .homepage-body button {
     border: 2px solid #292F36;
     height: 60px;
-    width: 120px;
+    width: 150px;
     border-radius: 8px;
     background: red;
     color: #ffffff;
