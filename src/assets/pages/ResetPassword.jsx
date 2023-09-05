@@ -13,14 +13,14 @@ function ResetPassword() {
   const handleResetPassword = async () => {
     try {
       // Send a request to your server to verify the token and reset the password
-      const response = await fetch('https://piclit-backend.onrender.com/api/v1/reset/reset-password/:token', {
+      const response = await fetch(`https://piclit-backend.onrender.com/api/v1/reset/reset-password/${token}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ token, newPassword }),
+        body: JSON.stringify({ newPassword }),
       });
-
+  
       if (response.ok) {
         // Password reset was successful
         navigate('/login'); // Redirect the user to the login page or another appropriate page
