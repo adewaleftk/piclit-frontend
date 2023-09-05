@@ -1,14 +1,36 @@
 import { useState } from 'react';
 import '../styles/resetpassword.css'
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const { token } = useParams();
+  const navigate = useNavigate();
 
-    // Add logic to submit the new password to your backend
+  const handleResetPassword = async () => {
+    try {
+      // Send a request to your server to verify the token and reset the password
+      const response = await fetch('https://piclit-backend.onrender.com/api/v1/reset/reset-password/:token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token, newPassword }),
+      });
+
+      if (response.ok) {
+        // Password reset was successful
+        navigate('/login'); // Redirect the user to the login page or another appropriate page
+      } else {
+        // Handle password reset failure (e.g., show an error message)
+        console.error('Password reset failed.');
+      }
+    } catch (error) {
+      console.error('An error occurred while resetting the password:', error);
+    }
   };
 
   return (
@@ -39,7 +61,7 @@ function ResetPassword() {
 
         {/* Display validation errors here if needed */}
 
-        <button type="submit">Reset Password</button>
+        <button onClick={handleResetPassword}>Reset Password</button>
         </div>
       {/* Display success message here if the password reset was successful */}
     </div>
