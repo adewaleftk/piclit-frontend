@@ -1,5 +1,5 @@
 .login {
-    background: green;
+    background: rgb(222, 248, 222);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -96,7 +96,7 @@
 
 @media only screen and (max-width: 768px) {
     .login {
-        background: green;
+        background: rgb(222, 248, 222);
         height: 100vh;
         display: flex;
         flex-direction: column;

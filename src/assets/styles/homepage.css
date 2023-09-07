@@ -9,12 +9,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: rgb(222, 248, 222);
     height: 90vh;
 }
 
 .homepage-body p {
     font-size: 40px;
     font-weight: 600;
+    color: black;
 }
 
 .homepage-body button {
@@ -51,7 +53,7 @@
   } */
 
   .rainbow-text {
-    color: black;
+    /* color: black; */
   }
   
 
@@ -68,6 +70,7 @@
         justify-content: center;
         align-items: center;
         height: 90vh;
+        background: rgb(222, 248, 222);
     }
     
     .homepage-body p {
@@ -138,7 +141,7 @@
 
  /* .homepage-body { height: 90vh; } */
 
-.homepage-body {
+/* .homepage-body {
     background: radial-gradient(circle, lemonchiffon, rgb(223, 68, 68) 25%, skyblue);
 
 }
@@ -155,4 +158,4 @@
 @keyframes color {
     0% {  background: radial-gradient(circle, transparent, rgb(128, 55, 55) 25%, transparent); }
     100% { opacity: 1; }
-}
+} */
