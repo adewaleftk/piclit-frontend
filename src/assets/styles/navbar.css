@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +11,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: #F5F5F5;
+    background: #23194f;
     height: 10vh;
     align-items: center;
 }
@@ -17,14 +19,18 @@
 .navbar .logo {
     font-size: 40px;
     margin-left: 20px;
+    font-weight: 800;
 }
 
 .pic {
-    color: red;
+    color: #fffbdf;
+    font-family: "Raleway Dots", sans-serif;
+
 }
 
 .lit {
-    color: black;
+    color: #fffbdf;
+    font-family: "Raleway Dots", sans-serif;
 }
 
 .navbar .nav-links {
@@ -35,8 +41,9 @@
 
 .navbar .nav-links a {
     text-decoration: none;
+    border-radius: 50px;
     color: #292F36;
-    border: 2px solid #292F36;
+    border: 2px solid #6ec6cb;
     width: 90px;
     height: 40px;
     font-size: 18px;
@@ -46,12 +53,12 @@
 }
 
 .navbar .nav-links a:nth-child(1) {
-    color: green;
+    color: #fffbdf;
     margin-right: 20px;
 }
 
 .navbar .nav-links a:nth-child(2) {
-    color: red;
+    color: #fffbdf;
 }
 
 @media only screen and (max-width: 768px) {

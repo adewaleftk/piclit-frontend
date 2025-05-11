@@ -1,10 +1,10 @@
 .register {
-    background: rgb(222, 248, 222);
+    background: #23194f;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 
 .register-box {
@@ -15,7 +15,7 @@
     border-radius: 20px;
     padding: 20px;
     width: 40%;
-    background: rgb(182, 178, 178);
+    background: #ddfef8;
 }
 
 .register-box h2 {
@@ -56,14 +56,14 @@
 }
 
 .register-box span a {
-    color: blue;
+    color: #fe6807;
     font-weight: 600;
     text-decoration: none;
 }
 
 @media only screen and (max-width: 768px) {
     .register {
-        background: rgb(222, 248, 222);
+        background: #23194f;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -79,16 +79,18 @@
         border-radius: 20px;
         padding: 20px;
         width: 90%;
-        background: rgb(182, 178, 178);
+        background: #ddfef8;
     }
     
     .register-box h2 {
         font-size: 25px;
         text-align: center;
+        color: #23194f;
     }
     
     .register-box label {
         font-size: 20px;
+        color: #09080d;
     }
     
     .register-box input {
@@ -102,6 +104,7 @@
     .register-box button {
         height: 40px;
         margin-top: 20px;
+        background-color: #09080d;
         font-size: 20px;
         font-weight: 600;
         border-radius: 8px;
@@ -111,7 +114,7 @@
     }
     
     .register-box button:hover {
-        color: orangered;
+        color: #fe6807;
     }
     
     .register-box p {
@@ -120,7 +123,7 @@
     }
     
     .register-box span a {
-        color: blue;
+        color: #fe6807;
         font-weight: 600;
         text-decoration: none;
     }
